@@ -14,7 +14,8 @@ const {
   ogImage = OG_IMAGE,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, SITE.url);
+const siteOrigin = new URL('/', SITE.url).href;
+const canonicalURL = new URL(Astro.url.pathname, siteOrigin).href;
 const publishedDate = '2026-06-08';
 
 const structuredData = {
@@ -22,30 +23,30 @@ const structuredData = {
   '@graph': [
     {
       '@type': 'WebSite',
-      '@id': `${SITE.url}/#website`,
-      url: SITE.url,
+      '@id': `${siteOrigin}#website`,
+      url: siteOrigin,
       name: SITE.name,
       description,
       inLanguage: 'en-US',
     },
     {
       '@type': 'WebPage',
-      '@id': `${SITE.url}/#webpage`,
-      url: SITE.url,
+      '@id': `${canonicalURL}#webpage`,
+      url: canonicalURL,
       name: title,
       description,
-      isPartOf: { '@id': `${SITE.url}/#website` },
+      isPartOf: { '@id': `${siteOrigin}#website` },
       datePublished: publishedDate,
       dateModified: publishedDate,
       inLanguage: 'en-US',
     },
     {
       '@type': 'Product',
-      '@id': `${SITE.url}/#product`,
+      '@id': `${siteOrigin}#product`,
       name: 'edesigr.cloud Ultra-Premium Domain Name',
       description:
         'The ultra-premium, ultra-concise cloud-native domain for electronic designers, generative artists, AI-powered creative platforms, and cloud-based design studios. Available for acquisition.',
-      url: SITE.url,
+      url: siteOrigin,
       category: 'Premium Domain Name',
       brand: {
         '@type': 'Brand',
@@ -116,9 +117,9 @@ const structuredData = {
     },
     {
       '@type': 'Organization',
-      '@id': `${SITE.url}/#organization`,
+      '@id': `${siteOrigin}#organization`,
       name: SITE.name,
-      url: SITE.url,
+      url: siteOrigin,
       email: SITE.email,
       address: {
         '@type': 'PostalAddress',
