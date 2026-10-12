@@ -14,8 +14,11 @@ import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:text-zinc-950">
+    Skip to content
+  </a>
   <Nav />
-  <main>
+  <main id="main-content">
     <Hero />
     <TrustBar />
     <WhySection />
@@ -63,6 +66,7 @@ import Footer from '../components/Footer.astro';
 
     // Card entrance animation
     (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       const cards = document.querySelectorAll('.premium-card');
       cards.forEach((card, index) => {
         card.style.opacity = '0';

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,6 +5,7 @@
 @layer base {
   body {
     @apply bg-zinc-950 text-zinc-200 overflow-x-hidden font-sans antialiased;
+    text-rendering: optimizeLegibility;
   }
 }
 
@@ -45,6 +44,14 @@
   .premium-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .premium-card,
+    .premium-card:hover {
+      transition: none;
+      transform: none;
+    }
   }
 
   .nav-scrolled {

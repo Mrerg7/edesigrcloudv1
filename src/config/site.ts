@@ -1,8 +1,8 @@
 export const SITE = {
   name: 'edesigr.cloud',
-  title: 'edesigr.cloud • Premium Domain for Sale | Electronic Designers & AI Creatives',
+  title: 'edesigr.cloud | Premium Domain for Sale | edesigr.cloud',
   description:
-    'edesigr.cloud — The ultra-premium, ultra-concise cloud-native domain for electronic designers, generative artists, and AI-powered creative platforms. Modern. Scalable. Future-proof. Strategic acquisition available.',
+    'Buy edesigr.cloud for $139,000. A premium, brandable cloud domain for electronic design, AI creativity, and scalable technology platforms. Inquire today.',
   url: 'https://edesigr.cloud',
   email: 'sales@desertrich.com',
   locale: 'en_US',
